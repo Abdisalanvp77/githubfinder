@@ -6,9 +6,9 @@ import './App.css';
 import { Alert } from './components/layout/Alert';
 import Navbar from './components/layout/Navbar';
 import About from './components/pages/About';
-import Search from './components/users/Search';
 import User from './components/users/User';
-import Users from './components/users/Users';
+import Home from './components/pages/Home';
+import { NotFound } from './components/pages/NotFound';
 
 const App = () => {
   return (
@@ -20,20 +20,11 @@ const App = () => {
             <div className='container'>
               <Alert />
               <Switch>
-                <Route
-                  exact
-                  path='/'
-                  render={(props) => (
-                    <Fragment>
-                      {/* searchuser and clearuser props came up while showclear is going down */}
-                      <Search />
-                      <Users />
-                    </Fragment>
-                  )}
-                />
+                <Route exact path='/' component={Home} />
 
                 <Route exact path='/about' component={About} />
                 <Route exact path='/user/:login' component={User} />
+                <Route component={NotFound} />
               </Switch>
             </div>
           </Fragment>
